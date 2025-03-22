@@ -2,6 +2,10 @@ import Image from "next/image";
 import Footer from "@/components/footer"
 import CommonHeader from "@/components/common-header";
 import Link from "next/link";
+import HeroSection from "@/components/hero-section";
+import AboutSection from "@/components/about-section";
+import ServiceSection from "@/components/service-section";
+import TrackRecordSection from "@/components/track-record-section";
 export default function Home() {
   return (
     <div className="bg-[#FFFFFF]">
@@ -43,38 +47,15 @@ export default function Home() {
           </div>
         </div>
       </CommonHeader>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start px-[130px]">
+      <main className="flex flex-col row-start-2 items-center sm:items-start ">
         {/* About */}
-        <section className="py-[49px] bg-white md:flex items-center w-full">
-          <div className="w-full md:w-1/4">
-            <Image
-              src="/images/avt.png"
-              alt="Profile Image"
-              width={300}
-              height={488}
-              className="rounded-xl"
-            />
-          </div>
-          <div className="w-full md:w-3/4 md:pl-2">
-            <p className="text-lg uppercase text-[#8C89A2] mb-[8px]">About Me</p>
-            <p className="text-[40px] text-[#3F3A64] mb-[19px]">Vivek Padia</p>
-            <p className="text-[#3F3A64] text-[19px] mb-[40px] tracking-tighter">
-              I am a skilled <strong>Full Stack Developer</strong> with a strong focus on <strong>UI/UX design</strong>. Proficient in  
-              <code className="text-[#E83E8C]">HTML,<br/> CSS, JavaScript, Python, R, Node.js, Flutter, React, Angular, Android development, <br/> Java, Kotlin, Ionic Cordova , Nest, 
-              </code>and <code className="text-[#E83E8C]">Tensorflow</code>. 
-              I create visually stunning interfaces <br/> and seamless user experiences across platforms. With expertise in front-end, back-end, and mobile app development, I deliver dynamic applications. I am a proactive problem solver,<br/> quick learner, and collaborative team player. Passionate about staying updated with the latest <br/> technologies and driving business success. Download my resume to learn more.
-            </p>
-            <div className="">
-              <a
-                href="/"
-                download
-                className="bg-[#7D11F9] text-white px-5 py-3 text-[18px] rounded-lg"
-              >
-                Download My Resume
-              </a>
-            </div>
-          </div>
-        </section>
+        <AboutSection/>
+        {/* Professional Portfolio */}
+        <HeroSection/>
+
+        <ServiceSection/>
+
+        <TrackRecordSection/>
       </main>
       <Footer />
     </div>
