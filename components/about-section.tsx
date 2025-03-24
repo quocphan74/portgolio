@@ -4,7 +4,7 @@ import ItemHeaderSection from "./item-header-section";
 export default function AboutSection() {
     return (
         <CommonHeroSection type="section2">
-            <div className="w-full ">
+            <div className="w-full" id="about">
                  <ItemHeaderSection title="About Me" sub="Vivek Padia"/>
                 <p className=" text-[19px] mb-[40px] tracking-tighter">
                     I am a skilled <strong>Full Stack Developer</strong> with a strong focus on <strong>UI/UX design</strong>. Proficient in

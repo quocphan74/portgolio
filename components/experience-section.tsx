@@ -45,7 +45,7 @@ export default function ExperienceSection() {
 
     return (
         <CommonHeroSection type="section2">
-            <div className="w-full ">
+            <div className="w-full" id="experience">
                 <ItemHeaderSection title="Experience" sub="Here is a quick summary of my most recent experiences:"/>
                 <div className="space-y-6 max-w-3xl mx-auto">
                     {experiences.map((exp, index) => (

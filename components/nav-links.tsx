@@ -9,19 +9,28 @@ import { getThemeClass } from "@/utils/class-names";
 export default function NavLinks() {
     const { theme, toggleTheme } = useTheme();
     const menuItems = [
-        { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
-        { href: "/projects", label: "Projects" },
-        { href: "/designs", label: "Designs" },
-        { href: "/contact", label: "Contact" }
+        { href: "#home", label: "Home" },
+        { href: "#about", label: "About" },
+        { href: "#skills", label: "Skills" },
+        { href: "#experience", label: "Experience" },
+        { href: "#projects", label: "Projects" },
+        { href: "#contact", label: "Contact" }
     ];
 
     const [isOpen, setIsOpen] = useState(false);
+    const handleScroll = (id: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        const section = document.querySelector(id);
+        if (section) {
+          const headerHeight = 80;
+          const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: sectionTop - headerHeight, behavior: "smooth" });
+        }
+      };
+
     return (
         <>
             <nav className={getThemeClass(theme, "section1","shadow-md md:px-[130px] px-[30] py-4 flex justify-between items-center border-b-2 border-purple-600 fixed inset-x-0 top-0 z-100")}
-            
-            // className="bg-[#000000] text-white shadow-md md:px-[130px] px-[30] py-4 flex justify-between items-center border-b-2 border-purple-600 fixed inset-x-0 top-0 z-100"
             >
                 {/* Logo */}
                 <div className="flex items-center">
@@ -76,7 +85,7 @@ export default function NavLinks() {
                         {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
                     </button>
                     {menuItems.map(({ href, label }) => (
-                        <Link key={href} href={href} className="text-lg hover:text-purple-600 hover:underline">
+                        <Link key={href} href={href}  onClick={(e) => handleScroll(href, e)} className="text-lg hover:text-purple-600 hover:underline">
                             {label}
                         </Link>
                     ))}

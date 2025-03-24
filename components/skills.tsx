@@ -21,7 +21,7 @@ export default function Skills() {
       ];
     return (
         <CommonHeroSection type="section1">
-            <div className="w-full">
+            <div className="w-full" id="skills">
                 <ItemHeaderSection title="Skills" sub="The skills, tools and technologies I am really good at:"/>
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6 justify-center items-center">
                     {skills.map((skill, index) => (

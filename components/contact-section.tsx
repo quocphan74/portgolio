@@ -12,7 +12,7 @@ export default function ContactSection() {
 
     return (
         <CommonHeroSection type="section2">
-            <div className="w-full  text-center">
+            <div className="w-full  text-center" id="contact">
                 <button className="bg-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-600 transition !text-white">
                     Get in touch
                 </button>

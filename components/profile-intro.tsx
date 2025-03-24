@@ -6,7 +6,7 @@ export default function ProfileIntro() {
 
     return (
         <CommonHeroSection type="section1">
-            <div className="sm:w-full md:w-3/4  md:pr-20">
+            <div className="sm:w-full md:w-3/4  md:pr-20" id="home">
                 <h1 className="text-4xl font-bold flex items-center gap-2">
                     Hi, I'm Jamison 👋
                 </h1>

@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jost.className} antialiased pt-10`}
+        className={`${jost.className} antialiased pt-10 max-sm:pt-14`}
       >
          <ThemeProvider>
           <NavLinks/>

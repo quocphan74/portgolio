@@ -50,7 +50,7 @@ export default function WorkSection() {
 
     return (
         <CommonHeroSection type="section1">
-            <div className="w-full ">
+            <div className="w-full" id="projects">
                 <ItemHeaderSection title="Work" sub="Some of the noteworthy projects I have built:"/>
                 <div className="space-y-10 max-w-5xl mx-auto">
                     {projects.map((project, index) => (
