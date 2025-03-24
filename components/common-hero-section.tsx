@@ -1,16 +1,20 @@
 
+"use client"
 type ClassProps = {
-    bg?: string; 
+    type?: "section1" | "section2" 
     children: React.ReactNode; 
   };
+import { getThemeClass } from "@/utils/class-names";
+import { useTheme } from "@/components/theme-context";
 export default function CommonHeroSection({
-    bg = "F9F7FE",
+    type = "section1",
     children,
 }:ClassProps){
+    const { theme, toggleTheme } = useTheme();
     return (
         <>
-        <div className="px-[130px] py-[50px] md:flex w-full max-sm:py-[15px] max-sm:px-[30px]"
-            style={{ backgroundColor: bg }}
+        <div 
+        className={getThemeClass(theme, type,"px-[130px] py-[50px] md:flex w-full max-sm:py-[15px] max-sm:px-[30px]")}
         >
             {children}
         </div>

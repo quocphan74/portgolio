@@ -3,15 +3,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "@/components/theme-context";
+import { Moon, Sun } from "lucide-react"; 
+import { getThemeClass } from "@/utils/class-names";
 export default function NavLinks() {
+    const { theme, toggleTheme } = useTheme();
+    const menuItems = [
+        { href: "/", label: "Home" },
+        { href: "/about", label: "About" },
+        { href: "/projects", label: "Projects" },
+        { href: "/designs", label: "Designs" },
+        { href: "/contact", label: "Contact" }
+    ];
+
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <nav className="bg-white shadow-md md:px-[130px] px-[30] py-4 flex justify-between items-center">
+            <nav className={getThemeClass(theme, "section1","shadow-md md:px-[130px] px-[30] py-4 flex justify-between items-center border-b-2 border-purple-600 fixed inset-x-0 top-0 z-100")}
+            
+            // className="bg-[#000000] text-white shadow-md md:px-[130px] px-[30] py-4 flex justify-between items-center border-b-2 border-purple-600 fixed inset-x-0 top-0 z-100"
+            >
                 {/* Logo */}
                 <div className="flex items-center">
-                    <span className="text-purple-600 text-2xl font-bold flex items-center">
-                        <span className="text-xl mr-2">{"</>"}</span> V <span className="text-gray-900">DevStack</span>
+                    <span className="text-2xl font-bold flex items-center">
+                        <span className="text-xl mr-2">{"</>"}</span> V <span className="">DevStack</span>
                     </span>
                 </div>
                 <div className="md:hidden cursor-pointer" onClick={() => setIsOpen(true)}>
@@ -30,7 +45,7 @@ export default function NavLinks() {
                     {/* Navigation Mobile */}
                     <div className="w-[280px] h-screen bg-white fixed top-0 right-0 opacity-100 shadow-lg z-50 md:hidden" onClick={() => setIsOpen(false)}>
                         {/* Button Close */}
-                        <button className="absolute top-4 left-4 text-gray-600 hover:text-black cursor-pointer">
+                        <button className="absolute top-4 left-4 hover:text-black cursor-pointer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -45,51 +60,26 @@ export default function NavLinks() {
 
                         {/* List menu */}
                         <ul className="flex flex-col items-start space-y-6 mt-20 pl-6">
-                            <li>
-                                <Link href="/" className="text-lg text-purple-600 font-semibold hover:underline">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="text-lg text-gray-700 hover:text-purple-600 hover:underline">
-                                    About
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/projects" className="text-lg text-gray-700 hover:text-purple-600 hover:underline">
-                                    Projects
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/designs" className="text-lg text-gray-700 hover:text-purple-600 hover:underline">
-                                    Designs
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="text-lg text-gray-700 hover:text-purple-600 hover:underline">
-                                    Contact
-                                </Link>
-                            </li>
+                            {menuItems.map(({ href, label }) => (
+                                <li key={href}>
+                                    <Link href={href} className="text-lg hover:text-purple-600 hover:underline">
+                                        {label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </>)}
                 {/* Navigation Links */}
                 <div className="space-x-5 md:flex hidden">
-                    <Link href="/" className="text-purple-600 font-semibold">
-                        Home
-                    </Link>
-                    <Link href="/about" className="text-gray-700 hover:text-purple-600">
-                        About
-                    </Link>
-                    <Link href="/projects" className="text-gray-700 hover:text-purple-600">
-                        Projects
-                    </Link>
-                    <Link href="/designs" className="text-gray-700 hover:text-purple-600">
-                        Designs
-                    </Link>
-                    <Link href="/contact" className="text-gray-700 hover:text-purple-600">
-                        Contact
-                    </Link>
+                    <button onClick={toggleTheme} className="p-2 rounded-full">
+                        {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+                    </button>
+                    {menuItems.map(({ href, label }) => (
+                        <Link key={href} href={href} className="text-lg hover:text-purple-600 hover:underline">
+                            {label}
+                        </Link>
+                    ))}
                 </div>
             </nav>
         </>

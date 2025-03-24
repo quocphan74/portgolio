@@ -1,21 +1,12 @@
 import Image from "next/image";
 import CommonHeroSection from "./common-hero-section";
+import ItemHeaderSection from "./item-header-section";
 export default function AboutSection() {
     return (
-        <CommonHeroSection bg="#FFFFFF">
-            <div className="w-full md:w-1/4">
-                <Image
-                    src="/images/avt.png"
-                    alt="Profile Image"
-                    width={300}
-                    height={488}
-                    className="rounded-xl max-sm:mx-auto"
-                />
-            </div>
-            <div className="w-full md:w-3/4 md:pl-2">
-                <p className="text-lg uppercase text-[#8C89A2] mb-[8px] max-sm:text-center">About Me</p>
-                <p className="text-[40px] text-[#3F3A64] mb-[19px] max-sm:text-center">Vivek Padia</p>
-                <p className="text-[#3F3A64] text-[19px] mb-[40px] tracking-tighter max-sm:text-center">
+        <CommonHeroSection type="section2">
+            <div className="w-full ">
+                 <ItemHeaderSection title="About Me" sub="Vivek Padia"/>
+                <p className=" text-[19px] mb-[40px] tracking-tighter">
                     I am a skilled <strong>Full Stack Developer</strong> with a strong focus on <strong>UI/UX design</strong>. Proficient in
                     <code className="text-[#E83E8C]">HTML, CSS, JavaScript, Python, R, Node.js, Flutter, React, Angular, Android development, Java, Kotlin, Ionic Cordova , Nest,
                     </code>and <code className="text-[#E83E8C]">Tensorflow</code>.
@@ -25,7 +16,7 @@ export default function AboutSection() {
                     <a
                         href="/"
                         download
-                        className="bg-[#7D11F9] text-white px-5 py-3 text-[18px] rounded-lg flex gap-2"
+                        className="bg-[#7D11F9]  px-5 py-3 text-[18px] rounded-lg flex gap-2"
                     >
                         <Image
                             src="/images/download.svg"
